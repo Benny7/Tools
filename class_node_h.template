@@ -1,0 +1,32 @@
+/*************************************************
+ Copyright (c) 2014-2015 Benny Huang
+ File:			${FILE_NAME}.h
+ Author:		Benny Huang
+ Email:			harvyson@gmail.com
+ Date:			${GENE_DATA}
+ Description:	
+**************************************************/
+
+#ifndef __${CLASS_HEAD}_H__
+#define __${CLASS_HEAD}_H__
+
+#include "cocos2d.h"
+
+USING_NS_CC;
+
+class ${CLASS_NAME} : public Node
+{
+public:
+	CREATE_FUNC(${CLASS_NAME});
+
+	virtual bool init();
+
+	virtual void onEnter();
+
+	virtual void onExit();
+
+protected:
+
+}
+
+#endif // __${CLASS_HEAD}_H__
