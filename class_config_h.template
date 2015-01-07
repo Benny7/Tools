@@ -1,0 +1,41 @@
+/*************************************************
+ Copyright (c) 2014-2015 Benny Huang
+ File:			${FILE_NAME}.h
+ Author:		Benny Huang
+ Email:			harvyson@gmail.com
+ Date:			${GENE_DATA}
+ Description:	
+**************************************************/
+
+#ifndef __${CLASS_HEAD}_H__
+#define __${CLASS_HEAD}_H__
+
+#include "ConfigBase.h"
+
+class TheInfo 
+{
+public:
+	TheInfo() : 
+		id(-1){}
+
+public:
+	int id;
+};
+
+class ${CLASS_NAME} : public ConfigBase
+{
+public:
+	///@brief 加载接口
+	virtual bool load();
+
+	///@brief 获取信息
+	TheInfo* getTheInfo(int id);
+protected:
+	///@brief 解析配置信息
+	virtual bool paseConfigInfo(rapidjson::Document& doc);
+
+protected:
+	vector<TheInfo*> _theInfos;
+};
+
+#endif // __${CLASS_HEAD}_H__

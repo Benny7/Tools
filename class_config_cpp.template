@@ -1,0 +1,42 @@
+/*************************************************
+ Copyright (c) 2014-2015 Benny Huang
+ File:			${FILE_NAME}.cpp
+ Author:		Benny Huang
+ Email:			harvyson@gmail.com
+ Date:			${GENE_DATA}
+ Description:	
+**************************************************/
+
+#include "${CLASS_NAME}.h"
+
+#define CONFIG_JSON_FILE "config/.json"
+
+bool ${CLASS_NAME}::load()
+{
+	return ConfigBase::load(CONFIG_JSON_FILE);
+}
+
+TheInfo* ${CLASS_NAME}::getTheInfo(int id)
+{
+	if (id < 0 || id >= _theInfos.size())
+	{
+		return nullptr;
+	}
+
+	return _theInfos[id];
+}
+
+bool ${CLASS_NAME}::paseConfigInfo(rapidjson::Document& doc)
+{
+	_theInfos.clear();
+	TheInfo* info = new TheInfo[doc.Size()];
+	for (unsigned int i = 0; i < doc.Size(); ++i)
+	{
+		rapidjson::Value &v = doc[i];
+		info->id = v["id"].GetInt();
+
+		_theInfos.push_back(info);
+		++info;
+	}
+	return true;
+}
